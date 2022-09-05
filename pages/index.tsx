@@ -13,13 +13,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <Card>
-          Test
-        </Card>
-        <Card>
-          Lol
-        </Card>
+      <main
+        className={styles.main}
+        css={(theme) => ({
+          maxWidth: 500,
+          margin: "0 auto",
+          marginTop: theme.spacing(2),
+        })}
+      >
+        <Card>Test</Card>
+        <Card>Lol</Card>
       </main>
 
       <footer className={styles.footer}>
