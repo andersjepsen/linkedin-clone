@@ -10,12 +10,14 @@ export function Card ({
     return (
         <>
             <div
-                css={{
-                    borderWidth : "1px",
-                    borderRadius: "5px",
-                    backgroundColor: "green",
-                    minHeight: "10px"
-                }}
+                css={ (theme) => ({
+                    border: "1px solid grey",
+                    borderRadius: theme.spacing(1),
+                    backgroundColor: theme.colors.common.white,
+                    minHeight: theme.spacing(10),
+                    marginBottom : theme.spacing(1),
+                    overflow: "hidden"
+                })}
             >
                 {children}
             </div>

@@ -15,7 +15,10 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Card>
-          
+          Test
+        </Card>
+        <Card>
+          Lol
         </Card>
       </main>
 
