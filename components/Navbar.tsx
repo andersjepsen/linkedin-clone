@@ -4,14 +4,14 @@ import { Container } from "./Container";
 function NavbarWrapper({ children }: { children: React.ReactNode }) {
   return (
     <header
-      css={{
+      css={(theme) => ({
         backgroundColor: "white",
         height: 48,
         position: "fixed",
         top: 0,
         width: "100%",
-        borderBottom: "1px solid rgba(0,0,0,0.08)",
-      }}
+        borderBottom: `1px solid ${theme.colors.blackA[1]}`,
+      })}
     >
       {children}
     </header>
