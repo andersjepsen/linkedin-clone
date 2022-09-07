@@ -5,6 +5,9 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
+  images: {
+    domains: ["https://i.pravatar.cc/"],
+  },
 };
 
 module.exports = nextConfig;
