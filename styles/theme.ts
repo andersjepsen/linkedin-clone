@@ -29,4 +29,10 @@ export const theme = {
     md: 900,
     lg: 1200,
   },
+  radius: {
+    xs: "2px",
+    sm: "4px",
+    md: "8px",
+    lg: "12px",
+  },
 };

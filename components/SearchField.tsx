@@ -1,0 +1,19 @@
+import React from "react";
+
+export function SearchField(
+  props: React.ClassAttributes<HTMLInputElement> &
+    React.InputHTMLAttributes<HTMLInputElement>
+) {
+  return (
+    <input
+      css={(theme) => ({
+        color: theme.colors.blackA[9],
+        backgroundColor: "#eef3f8",
+        border: 0,
+        borderRadius: theme.radius.sm,
+        padding: theme.spacing(1),
+      })}
+      {...props}
+    />
+  );
+}
