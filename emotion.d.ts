@@ -27,5 +27,11 @@ declare module "@emotion/react" {
       md: number;
       lg: number;
     };
+    radius: {
+      xs: number;
+      sm: number;
+      md: number;
+      lg: number;
+    };
   }
 }
