@@ -1,10 +1,23 @@
-import type { NextPage } from "next";
+import type { InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { Avatar } from "../components/Avatar";
 import { Card } from "../components/Card";
 import styles from "../styles/Home.module.css";
+import { PostData } from "../types";
 
-const Home: NextPage = () => {
+export const getServerSideProps = async () => {
+  // Fetch data from external API
+  const res = await fetch(`http://localhost:3000/api/posts`);
+  const data: PostData[] = await res.json();
+
+  // Pass data to the page via props
+  return { props: { data } };
+};
+
+type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+const Home: NextPage<Props> = ({ data }) => {
   return (
     <>
       <Head>
@@ -21,22 +34,9 @@ const Home: NextPage = () => {
           marginTop: theme.spacing(2),
         })}
       >
-        <Card>Test</Card>
+        <Card>{data[0].text /* <Card.Header></Card.Header> */}</Card>
         <Card>Lol</Card>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </>
   );
 };
