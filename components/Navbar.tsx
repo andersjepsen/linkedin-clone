@@ -11,6 +11,8 @@ function NavbarWrapper({ children }: { children: React.ReactNode }) {
         top: 0,
         width: "100%",
         borderBottom: `1px solid ${theme.colors.blackA[1]}`,
+        display: "flex",
+        alignItems: "center",
       })}
     >
       {children}

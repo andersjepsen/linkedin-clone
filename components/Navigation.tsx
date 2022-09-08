@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface NavigationProps {
   children: React.ReactNode;
@@ -46,26 +47,35 @@ function NavigationItem({
         minWidth: 80,
       }}
     >
-      <a
-        href={href}
-        css={{
-          color: active ? "rgba(0,0,0,0.9)" : "rgba(0,0,0,0.6)",
-          "&:hover": {
-            color: "rgba(0,0,0,0.9)",
-          },
-        }}
-      >
-        <div
-          css={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
+      <Link href={href} passHref>
+        <a
+          css={(theme) => ({
+            color: active ? theme.colors.blackA[9] : theme.colors.blackA[6],
+            "&:hover": {
+              color: theme.colors.blackA[9],
+            },
+          })}
         >
-          <div>{icon}</div>
-          <span>{label}</span>
-        </div>
-      </a>
+          <div
+            css={(theme) => ({
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              paddingBottom: theme.spacing(0.25),
+              marginBottom: theme.spacing(-0.25),
+
+              ...(active && {
+                borderBottom: `${theme.spacing(0.25)} solid ${
+                  theme.colors.blackA[9]
+                }`,
+              }),
+            })}
+          >
+            <div>{icon}</div>
+            <span>{label}</span>
+          </div>
+        </a>
+      </Link>
     </li>
   );
 }
