@@ -10,7 +10,7 @@ export function Card({ children }: CardProps) {
     <>
       <div
         css={(theme) => ({
-          border: "1px solid grey",
+          border: `1px solid ${theme.colors.blackA[2]}`,
           borderRadius: theme.spacing(1),
           backgroundColor: theme.colors.common.white,
           minHeight: theme.spacing(10),
@@ -64,5 +64,33 @@ function CardHeader({ postdata }: CardHeaderProps) {
     </div>
   );
 }
+
+function CardContent({
+  children,
+  padding,
+}: {
+  children: React.ReactNode;
+  padding?: "sm" | "md" | "lg";
+}) {
+  return (
+    <div
+      css={(theme) => ({
+        ...(padding === "sm" && {
+          padding: `${theme.spacing(0.25)} ${theme.spacing(0.5)}`,
+        }),
+        ...(padding === "md" && {
+          padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
+        }),
+        ...(padding === "lg" && {
+          padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
+        }),
+      })}
+    >
+      {children}
+    </div>
+  );
+}
+
+Card.Content = CardContent;
 
 Card.Header = CardHeader;

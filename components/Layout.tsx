@@ -1,5 +1,7 @@
 import React from "react";
 import { Home, Users, Briefcase, MessageSquare, Bell } from "react-feather";
+import { theme } from "../styles/theme";
+import { Container } from "./Container";
 import { Navbar } from "./Navbar";
 import { Navigation } from "./Navigation";
 import { SearchField } from "./SearchField";
@@ -16,6 +18,7 @@ export function Layout({ children }: LayoutProps) {
           css={(theme) => ({
             display: "grid",
             gridTemplateColumns: `${theme.spacing(6)} 1fr 3fr`,
+            alignItems: "center",
           })}
         >
           <span>logo</span>
@@ -31,7 +34,7 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </Navbar>
-      {children}
+      <Container>{children}</Container>
     </>
   );
 }
