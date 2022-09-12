@@ -32,8 +32,11 @@ const Home: NextPage<Props> = ({ data }) => {
           justifyContent: "center",
         })}
       >
-        <Card>{data[0].text /* <Card.Header></Card.Header> */}</Card>
-        <Card>Lol</Card>
+        {data.map((post) => (
+          <Card key={post.id}>
+            <Card.Header postdata={post}></Card.Header>
+          </Card>
+        ))}
       </main>
     </HomeLayout>
   );

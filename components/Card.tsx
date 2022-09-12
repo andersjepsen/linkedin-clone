@@ -1,6 +1,8 @@
 import React from "react";
+import { theme } from "../styles/theme";
 import { PostData } from "../types/index";
-
+import { Avatar } from "./Avatar";
+import { Globe } from "react-feather";
 interface CardProps {
   children: React.ReactNode;
 }
@@ -32,32 +34,73 @@ function CardHeader({ postdata }: CardHeaderProps) {
   return (
     <div
       css={{
-        height: "100px",
+        //height: "100px",
         display: "flex",
         justifyContent: "space-between",
+        gap: theme.spacing(1),
+        padding: theme.spacing(1),
       }}
     >
       <div
         css={{
-          height: "100px",
+          //Avatar
           display: "flex",
-          flex: "0 0 100px",
-          backgroundColor: "red",
+          flex: "0 0 0",
+          textOverflow: "ellipsis",
         }}
-      ></div>
+      >
+        <Avatar source={postdata.createdBy.avatarUrl}></Avatar>
+      </div>
       <div
         css={{
-          height: "100px",
+          //Author info
           display: "flex",
-          flex: "0 1 300px",
-          backgroundColor: "green",
+          flex: "1 1 0",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          whiteSpace: "nowrap",
+          textOverflow: "ellipsis",
         }}
-      ></div>
+      >
+        <span
+          css={{
+            //Name
+            color: "rgb(0, 0, 0, 1)",
+            fontSize: "14px",
+            fontWeight: "bolder",
+            display: "block",
+          }}
+        >
+          {postdata.createdBy.name}
+        </span>
+        <span
+          css={{
+            //Subtitle
+            color: "rgb(0, 0, 0, 0.6)",
+            fontSize: "12px",
+            display: "block",
+          }}
+        >
+          {postdata.createdBy.subTitle}
+        </span>
+        <span
+          css={{
+            //Post age and privacy
+            color: "rgb(0, 0, 0, 0.6)",
+            fontSize: "12px",
+            display: "flex",
+            justifyItems: "flex-start",
+          }}
+        >
+          <span>32m &#183;</span>
+          {<Globe css={{ height: "14px", strokeWidth: "bold" }} />}
+        </span>
+      </div>
       <div
         css={{
-          height: "100px",
+          //more options
           display: "flex",
-          flex: "0 0 100px",
+          flex: "0 0 0",
           backgroundColor: "blue",
         }}
       ></div>

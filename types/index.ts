@@ -6,6 +6,7 @@ export type UserData = {
 };
 
 export type PostData = {
+  id: number;
   createdBy: UserData;
   text: string;
 };
