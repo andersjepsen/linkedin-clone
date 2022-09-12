@@ -8,9 +8,10 @@ import styled from "@emotion/styled";
 import { Seperator } from "./Seperator";
 interface CardProps {
   children: React.ReactNode;
+  padding?: "sm" | "md" | "lg";
 }
 
-export function Card({ children }: CardProps) {
+export function Card({ children, padding }: CardProps) {
   return (
     <>
       <div
@@ -19,6 +20,16 @@ export function Card({ children }: CardProps) {
           borderRadius: theme.spacing(1),
           backgroundColor: theme.colors.common.white,
           minHeight: theme.spacing(10),
+          ...(padding === "sm" && {
+            padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
+          }),
+          ...(padding === "md" && {
+            padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
+          }),
+          ...(padding === "lg" && {
+            padding: `${theme.spacing(1.5)} ${theme.spacing(3)}`,
+          }),
+
           marginBottom: theme.spacing(1),
           overflow: "hidden",
         })}
@@ -70,7 +81,7 @@ function CardHeader({ postdata }: CardHeaderProps) {
         display: "flex",
         justifyContent: "space-between",
         gap: theme.spacing(1),
-        padding: theme.spacing(2),
+        paddingBottom: theme.spacing(1),
       }}
     >
       <AvatarWrapper>
@@ -91,30 +102,8 @@ function CardHeader({ postdata }: CardHeaderProps) {
   );
 }
 
-function CardContent({
-  children,
-  padding,
-}: {
-  children: React.ReactNode;
-  padding?: "sm" | "md" | "lg";
-}) {
-  return (
-    <div
-      css={(theme) => ({
-        ...(padding === "sm" && {
-          padding: `${theme.spacing(0.25)} ${theme.spacing(0.5)}`,
-        }),
-        ...(padding === "md" && {
-          padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
-        }),
-        ...(padding === "lg" && {
-          padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
-        }),
-      })}
-    >
-      {children}
-    </div>
-  );
+function CardContent({ children }: { children: React.ReactNode }) {
+  return <div>{children}</div>;
 }
 
 Card.Content = CardContent;

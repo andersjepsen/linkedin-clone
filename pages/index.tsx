@@ -34,14 +34,15 @@ const Home: NextPage<Props> = ({ data }) => {
         })}
       >
         {data.map((post) => (
-          <Card key={post.id}>
+          <Card key={post.id} padding="lg">
             <Card.Header postdata={post}></Card.Header>
-            <Card.Content padding="lg">
+            <Card.Content>
               <p
                 css={{
                   fontSize: "14px",
                   lineHeight: "150%",
                   color: theme.colors.blackA[8],
+                  margin: "0",
                 }}
               >
                 {post.text}
