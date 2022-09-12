@@ -3,6 +3,7 @@ import { theme } from "../styles/theme";
 import { PostData } from "../types/index";
 import { Avatar } from "./Avatar";
 import { Globe } from "react-feather";
+import styled from "@emotion/styled";
 interface CardProps {
   children: React.ReactNode;
 }
@@ -25,6 +26,14 @@ export function Card({ children }: CardProps) {
     </>
   );
 }
+
+const AuthorInfo = styled.div({
+  display: "flex",
+  flex: "1 1 0",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  textOverflow: "ellipsis",
+});
 
 interface CardHeaderProps {
   postdata: PostData;
@@ -51,17 +60,7 @@ function CardHeader({ postdata }: CardHeaderProps) {
       >
         <Avatar source={postdata.createdBy.avatarUrl}></Avatar>
       </div>
-      <div
-        css={{
-          //Author info
-          display: "flex",
-          flex: "1 1 0",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          whiteSpace: "nowrap",
-          textOverflow: "ellipsis",
-        }}
-      >
+      <AuthorInfo>
         <span
           css={{
             //Name
@@ -95,7 +94,7 @@ function CardHeader({ postdata }: CardHeaderProps) {
           <span>32m &#183;</span>
           {<Globe css={{ height: "14px", strokeWidth: "bold" }} />}
         </span>
-      </div>
+      </AuthorInfo>
       <div
         css={{
           //more options
