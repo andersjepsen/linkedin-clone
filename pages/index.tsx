@@ -6,6 +6,7 @@ import { Card } from "../components/Card";
 import { HomeLayout } from "../components/HomeLayout";
 import styles from "../styles/Home.module.css";
 import { PostData } from "../types";
+import { theme } from "../styles/theme";
 
 export const getServerSideProps = async () => {
   // Fetch data from external API
@@ -35,6 +36,17 @@ const Home: NextPage<Props> = ({ data }) => {
         {data.map((post) => (
           <Card key={post.id}>
             <Card.Header postdata={post}></Card.Header>
+            <Card.Content padding="lg">
+              <p
+                css={{
+                  fontSize: "14px",
+                  lineHeight: "150%",
+                  color: theme.colors.blackA[8],
+                }}
+              >
+                {post.text}
+              </p>
+            </Card.Content>
           </Card>
         ))}
       </main>

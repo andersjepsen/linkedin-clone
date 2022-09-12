@@ -2,8 +2,10 @@ import React from "react";
 import { theme } from "../styles/theme";
 import { PostData } from "../types/index";
 import { Avatar } from "./Avatar";
-import { Globe } from "react-feather";
+import { Globe, MoreHorizontal } from "react-feather";
 import styled from "@emotion/styled";
+
+import { Seperator } from "./Seperator";
 interface CardProps {
   children: React.ReactNode;
 }
@@ -27,12 +29,34 @@ export function Card({ children }: CardProps) {
   );
 }
 
+const AvatarWrapper = styled.div({ display: "flex", flex: "0 0 0" });
+
 const AuthorInfo = styled.div({
   display: "flex",
   flex: "1 1 0",
   flexDirection: "column",
   justifyContent: "space-between",
   textOverflow: "ellipsis",
+});
+
+const AuthorName = styled.div(({ theme }) => ({
+  color: theme.colors.blackA[10], //"rgb(0, 0, 0, 1)",
+  fontSize: "14px",
+  fontWeight: "bolder",
+  display: "block",
+}));
+
+const AutherSubtitle = styled.div({
+  color: "rgb(0, 0, 0, 0.6)",
+  fontSize: "12px",
+  display: "block",
+});
+
+const PostAgeAndPrivacy = styled.div({
+  color: "rgb(0, 0, 0, 0.6)",
+  fontSize: "12px",
+  display: "flex",
+  justifyItems: "flex-start",
 });
 
 interface CardHeaderProps {
@@ -43,66 +67,26 @@ function CardHeader({ postdata }: CardHeaderProps) {
   return (
     <div
       css={{
-        //height: "100px",
         display: "flex",
         justifyContent: "space-between",
         gap: theme.spacing(1),
-        padding: theme.spacing(1),
+        padding: theme.spacing(2),
       }}
     >
-      <div
-        css={{
-          //Avatar
-          display: "flex",
-          flex: "0 0 0",
-          textOverflow: "ellipsis",
-        }}
-      >
+      <AvatarWrapper>
         <Avatar source={postdata.createdBy.avatarUrl}></Avatar>
-      </div>
+      </AvatarWrapper>
       <AuthorInfo>
-        <span
-          css={{
-            //Name
-            color: "rgb(0, 0, 0, 1)",
-            fontSize: "14px",
-            fontWeight: "bolder",
-            display: "block",
-          }}
-        >
-          {postdata.createdBy.name}
-        </span>
-        <span
-          css={{
-            //Subtitle
-            color: "rgb(0, 0, 0, 0.6)",
-            fontSize: "12px",
-            display: "block",
-          }}
-        >
-          {postdata.createdBy.subTitle}
-        </span>
-        <span
-          css={{
-            //Post age and privacy
-            color: "rgb(0, 0, 0, 0.6)",
-            fontSize: "12px",
-            display: "flex",
-            justifyItems: "flex-start",
-          }}
-        >
-          <span>32m &#183;</span>
-          {<Globe css={{ height: "14px", strokeWidth: "bold" }} />}
-        </span>
+        <AuthorName>{postdata.createdBy.name}</AuthorName>
+        <AutherSubtitle>{postdata.createdBy.subTitle}</AutherSubtitle>
+        <PostAgeAndPrivacy>
+          <span>30m &#183;</span>
+          {<Globe css={{ height: "14px" }} />}
+        </PostAgeAndPrivacy>
       </AuthorInfo>
-      <div
-        css={{
-          //more options
-          display: "flex",
-          flex: "0 0 0",
-          backgroundColor: "blue",
-        }}
-      ></div>
+      <div css={{ color: theme.colors.blackA[6] }}>
+        <MoreHorizontal />
+      </div>
     </div>
   );
 }
