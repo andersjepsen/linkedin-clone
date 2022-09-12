@@ -1,3 +1,6 @@
+import { Interpolation, Theme } from "@emotion/react";
+import { theme } from "../styles/theme";
+
 const breakpoints = [576, 768, 992, 1200];
 
 const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
@@ -9,21 +12,21 @@ interface ContainerProps {
 export function Container({ children }: ContainerProps) {
   return (
     <div
-      css={{
+      css={(theme) => ({
         margin: "0 auto",
-        [mq[0]]: {
-          width: breakpoints[0],
+        [`@media (min-width: ${theme.breakpoints.xs}px)`]: {
+          width: theme.breakpoints.xs,
         },
-        [mq[1]]: {
-          width: breakpoints[1],
+        [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+          width: theme.breakpoints.sm,
         },
-        [mq[2]]: {
-          width: breakpoints[2],
+        [`@media (min-width: ${theme.breakpoints.md}px)`]: {
+          width: theme.breakpoints.md,
         },
-        [mq[3]]: {
-          width: breakpoints[3],
+        [`@media (min-width: ${theme.breakpoints.lg}px)`]: {
+          width: theme.breakpoints.lg,
         },
-      }}
+      })}
     >
       {children}
     </div>

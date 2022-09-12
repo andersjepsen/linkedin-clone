@@ -24,9 +24,9 @@ export const theme = {
     1: "12px",
   },
   breakpoints: {
-    xs: 0,
-    sm: 600,
-    md: 900,
+    xs: 576,
+    sm: 768,
+    md: 992,
     lg: 1200,
   },
   radius: {

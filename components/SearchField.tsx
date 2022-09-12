@@ -12,6 +12,7 @@ export function SearchField(
         border: 0,
         borderRadius: theme.radius.sm,
         padding: theme.spacing(1),
+        height: theme.spacing(4),
       })}
       {...props}
     />
