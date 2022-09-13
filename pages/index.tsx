@@ -7,6 +7,7 @@ import { HomeLayout } from "../components/HomeLayout";
 import styles from "../styles/Home.module.css";
 import { PostData } from "../types";
 import { theme } from "../styles/theme";
+import { ThumbsUp, MessageSquare, Share, Send } from "react-feather";
 
 export const getServerSideProps = async () => {
   // Fetch data from external API
@@ -43,11 +44,37 @@ const Home: NextPage<Props> = ({ data }) => {
                   lineHeight: "150%",
                   color: theme.colors.blackA[8],
                   margin: "0",
+                  paddingBottom: theme.spacing(1),
                 }}
               >
                 {post.text}
               </p>
             </Card.Content>
+            <Card.Footer>
+              <div
+                css={{
+                  display: "flex",
+                  gap: theme.spacing(0.5),
+                }}
+              >
+                <Card.SocailButton
+                  icon={<ThumbsUp />}
+                  label="like"
+                ></Card.SocailButton>
+                <Card.SocailButton
+                  icon={<MessageSquare />}
+                  label="Comment"
+                ></Card.SocailButton>
+                <Card.SocailButton
+                  icon={<Share />}
+                  label="Share"
+                ></Card.SocailButton>
+                <Card.SocailButton
+                  icon={<Send />}
+                  label="Send"
+                ></Card.SocailButton>
+              </div>
+            </Card.Footer>
           </Card>
         ))}
       </main>

@@ -106,6 +106,50 @@ function CardContent({ children }: { children: React.ReactNode }) {
   return <div>{children}</div>;
 }
 
-Card.Content = CardContent;
+function CardFooter({ children }: { children: React.ReactNode }) {
+  return <div>{children}</div>;
+}
+
+interface SocialButtonProps {
+  label: string;
+  icon?: React.ReactNode;
+  active?: boolean;
+  href?: string;
+}
+
+function SocialButton({
+  label,
+  icon,
+  active = false,
+  href = "#",
+}: SocialButtonProps) {
+  return (
+    <button
+      css={{
+        flex: "1",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: theme.spacing(0.5),
+        color: active ? theme.colors.blackA[9] : theme.colors.blackA[6],
+        fontWeight: "bolder",
+        fontSize: "16px",
+        padding: theme.spacing(1),
+        backgroundColor: "Transparent",
+        cursor: "pointer",
+        border: "none",
+        borderRadius: theme.spacing(0.5),
+        ":hover": { backgroundColor: theme.colors.blackA[1] },
+        ":active": {},
+      }}
+    >
+      <div css={{ flex: 0 }}>{icon}</div>
+      <span css={{ flex: 0 }}>{label}</span>
+    </button>
+  );
+}
 
 Card.Header = CardHeader;
+Card.Content = CardContent;
+Card.Footer = CardFooter;
+Card.SocailButton = SocialButton;
