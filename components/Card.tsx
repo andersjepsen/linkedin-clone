@@ -1,11 +1,11 @@
 import React from "react";
-import { theme } from "../styles/theme";
 import { PostData } from "../types/index";
 import { Avatar } from "./Avatar";
 import { Globe, MoreHorizontal } from "react-feather";
 import styled from "@emotion/styled";
 
 import { Seperator } from "./Seperator";
+import { theme } from "../styles/theme";
 interface CardProps {
   children: React.ReactNode;
   padding?: "sm" | "md" | "lg";
@@ -77,12 +77,12 @@ interface CardHeaderProps {
 function CardHeader({ postdata }: CardHeaderProps) {
   return (
     <div
-      css={{
+      css={(theme) => ({
         display: "flex",
         justifyContent: "space-between",
         gap: theme.spacing(1),
         paddingBottom: theme.spacing(1),
-      }}
+      })}
     >
       <AvatarWrapper>
         <Avatar source={postdata.createdBy.avatarUrl}></Avatar>
@@ -110,46 +110,6 @@ function CardFooter({ children }: { children: React.ReactNode }) {
   return <div>{children}</div>;
 }
 
-interface SocialButtonProps {
-  label: string;
-  icon?: React.ReactNode;
-  active?: boolean;
-  href?: string;
-}
-
-function SocialButton({
-  label,
-  icon,
-  active = false,
-  href = "#",
-}: SocialButtonProps) {
-  return (
-    <button
-      css={{
-        flex: "1",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: theme.spacing(0.5),
-        color: active ? theme.colors.blackA[9] : theme.colors.blackA[6],
-        fontWeight: "bolder",
-        fontSize: "16px",
-        padding: theme.spacing(1),
-        backgroundColor: "Transparent",
-        cursor: "pointer",
-        border: "none",
-        borderRadius: theme.spacing(0.5),
-        ":hover": { backgroundColor: theme.colors.blackA[1] },
-        ":active": {},
-      }}
-    >
-      <div css={{ flex: 0 }}>{icon}</div>
-      <span css={{ flex: 0 }}>{label}</span>
-    </button>
-  );
-}
-
 Card.Header = CardHeader;
 Card.Content = CardContent;
 Card.Footer = CardFooter;
-Card.SocailButton = SocialButton;

@@ -9,6 +9,7 @@ import styles from "../styles/Home.module.css";
 import { PostData } from "../types";
 import { theme } from "../styles/theme";
 import { ThumbsUp, MessageSquare, Share, Send } from "react-feather";
+import { Button } from "../components/Button";
 
 export const getServerSideProps = async () => {
   // Fetch data from external API
@@ -59,22 +60,10 @@ const Home: NextPage<Props> = ({ data }) => {
                   gap: theme.spacing(0.5),
                 }}
               >
-                <Card.SocailButton
-                  icon={<ThumbsUp />}
-                  label="like"
-                ></Card.SocailButton>
-                <Card.SocailButton
-                  icon={<MessageSquare />}
-                  label="Comment"
-                ></Card.SocailButton>
-                <Card.SocailButton
-                  icon={<Share />}
-                  label="Share"
-                ></Card.SocailButton>
-                <Card.SocailButton
-                  icon={<Send />}
-                  label="Send"
-                ></Card.SocailButton>
+                <Button icon={<ThumbsUp />} label="like"></Button>
+                <Button icon={<MessageSquare />} label="Comment"></Button>
+                <Button icon={<Share />} label="Share"></Button>
+                <Button icon={<Send />} label="Send"></Button>
               </div>
             </Card.Footer>
           </Card>
