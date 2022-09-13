@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Avatar } from "../components/Avatar";
 import { Card } from "../components/Card";
 import { HomeLayout } from "../components/HomeLayout";
+import { ShareCard } from "../components/ShareCard";
 import styles from "../styles/Home.module.css";
 import { PostData } from "../types";
 import { theme } from "../styles/theme";
@@ -34,6 +35,7 @@ const Home: NextPage<Props> = ({ data }) => {
           justifyContent: "center",
         })}
       >
+        <ShareCard />
         {data.map((post) => (
           <Card key={post.id} padding="lg">
             <Card.Header postdata={post}></Card.Header>
