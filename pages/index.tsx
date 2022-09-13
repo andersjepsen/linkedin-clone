@@ -60,10 +60,17 @@ const Home: NextPage<Props> = ({ data }) => {
                   gap: theme.spacing(0.5),
                 }}
               >
-                <Button icon={<ThumbsUp />} label="like"></Button>
-                <Button icon={<MessageSquare />} label="Comment"></Button>
-                <Button icon={<Share />} label="Share"></Button>
-                <Button icon={<Send />} label="Send"></Button>
+                <Button
+                  onClick={() => {
+                    console.log("POPOP");
+                  }}
+                  icon={<ThumbsUp />}
+                >
+                  Like
+                </Button>
+                <Button icon={<MessageSquare />}>Comment</Button>
+                <Button icon={<Share />}>Share</Button>
+                <Button icon={<Send />}>Send</Button>
               </div>
             </Card.Footer>
           </Card>

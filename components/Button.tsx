@@ -1,18 +1,21 @@
-interface SocialButtonProps {
-  label: string;
+interface ButtonProps {
+  children: React.ReactNode;
   icon?: React.ReactNode;
   active?: boolean;
   href?: string;
+  onClick?: () => void;
 }
 
 export function Button({
-  label,
+  children,
   icon,
   active = false,
   href = "#",
-}: SocialButtonProps) {
+  onClick,
+}: ButtonProps) {
   return (
     <button
+      onClick={onClick}
       css={(theme) => ({
         flex: "1",
         display: "flex",
@@ -34,7 +37,7 @@ export function Button({
       })}
     >
       <div css={{ flex: 0 }}>{icon}</div>
-      <span css={{ flex: 0 }}>{label}</span>
+      {children}
     </button>
   );
 }
