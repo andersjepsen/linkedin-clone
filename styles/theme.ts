@@ -34,5 +34,7 @@ export const theme = {
     sm: "4px",
     md: "8px",
     lg: "12px",
+    round: "50%",
+    pill: "9999px",
   },
 };

@@ -107,5 +107,6 @@ function CardContent({ children }: { children: React.ReactNode }) {
 }
 
 Card.Content = CardContent;
+Card.Footer = CardContent;
 
 Card.Header = CardHeader;
