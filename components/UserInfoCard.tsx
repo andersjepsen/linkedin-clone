@@ -29,7 +29,7 @@ export function UserInfoCard() {
             css={(theme) => ({
               fontSize: 12,
               marginTop: theme.spacing(0.5),
-              color: theme.colors.blackA[6],
+              color: theme.colors.blackA.blackA11,
             })}
           >
             Gravkospecialist

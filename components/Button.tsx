@@ -19,7 +19,9 @@ export function Button({
         justifyContent: "center",
         alignItems: "center",
         gap: theme.spacing(0.5),
-        color: active ? theme.colors.blackA[9] : theme.colors.blackA[6],
+        color: active
+          ? theme.colors.blackA.blackA12
+          : theme.colors.blackA.blackA11,
         fontWeight: "bolder",
         fontSize: "14px",
         padding: theme.spacing(1),
@@ -27,7 +29,7 @@ export function Button({
         cursor: "pointer",
         border: "none",
         borderRadius: theme.spacing(0.5),
-        ":hover": { backgroundColor: theme.colors.blackA[1] },
+        ":hover": { backgroundColor: theme.colors.blackA.blackA6 },
         ":active": {},
       })}
     >

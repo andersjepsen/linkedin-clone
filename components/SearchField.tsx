@@ -7,7 +7,7 @@ export function SearchField(
   return (
     <input
       css={(theme) => ({
-        color: theme.colors.blackA[9],
+        color: theme.colors.blackA.blackA12,
         backgroundColor: "#eef3f8",
         border: 0,
         borderRadius: theme.radius.sm,

@@ -45,7 +45,7 @@ const Home: NextPage<Props> = ({ data }) => {
                 css={{
                   fontSize: "14px",
                   lineHeight: "150%",
-                  color: theme.colors.blackA[8],
+                  color: theme.colors.blackA.blackA12,
                   margin: "0",
                   paddingBottom: theme.spacing(1),
                 }}

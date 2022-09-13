@@ -19,7 +19,7 @@ export function ShareCard() {
           <button
             css={(theme) => ({
               borderRadius: theme.radius.pill,
-              border: `1px solid ${theme.colors.blackA[5]}`,
+              border: `1px solid ${theme.colors.blackA.blackA11}`,
               width: "100%",
               height: theme.spacing(5),
               paddingLeft: theme.spacing(2),
@@ -27,7 +27,7 @@ export function ShareCard() {
               backgroundColor: theme.colors.common.white,
               textAlign: "left",
               "&:hover": {
-                backgroundColor: theme.colors.blackA[1],
+                backgroundColor: theme.colors.blackA.blackA6,
               },
             })}
           >

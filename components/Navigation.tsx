@@ -50,9 +50,11 @@ function NavigationItem({
       <Link href={href} passHref>
         <a
           css={(theme) => ({
-            color: active ? theme.colors.blackA[9] : theme.colors.blackA[6],
+            color: active
+              ? theme.colors.blackA.blackA12
+              : theme.colors.blackA.blackA11,
             "&:hover": {
-              color: theme.colors.blackA[9],
+              color: theme.colors.blackA.blackA12,
             },
           })}
         >
@@ -66,7 +68,7 @@ function NavigationItem({
 
               ...(active && {
                 borderBottom: `${theme.spacing(0.25)} solid ${
-                  theme.colors.blackA[9]
+                  theme.colors.blackA.blackA12
                 }`,
               }),
             })}

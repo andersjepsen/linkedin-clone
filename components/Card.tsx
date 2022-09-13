@@ -1,11 +1,9 @@
+import styled from "@emotion/styled";
 import React from "react";
+import { Globe, MoreHorizontal } from "react-feather";
 import { PostData } from "../types/index";
 import { Avatar } from "./Avatar";
-import { Globe, MoreHorizontal } from "react-feather";
-import styled from "@emotion/styled";
 
-import { Seperator } from "./Seperator";
-import { theme } from "../styles/theme";
 interface CardProps {
   children: React.ReactNode;
   padding?: "sm" | "md" | "lg";
@@ -16,7 +14,7 @@ export function Card({ children, padding }: CardProps) {
     <>
       <div
         css={(theme) => ({
-          border: `1px solid ${theme.colors.blackA[2]}`,
+          border: `1px solid ${theme.colors.blackA.blackA9}`,
           borderRadius: theme.spacing(1),
           backgroundColor: theme.colors.common.white,
           minHeight: theme.spacing(10),
@@ -51,24 +49,24 @@ const AuthorInfo = styled.div({
 });
 
 const AuthorName = styled.div(({ theme }) => ({
-  color: theme.colors.blackA[10], //"rgb(0, 0, 0, 1)",
+  color: theme.colors.common.black,
   fontSize: "14px",
   fontWeight: "bolder",
   display: "block",
 }));
 
-const AutherSubtitle = styled.div({
-  color: "rgb(0, 0, 0, 0.6)",
+const AutherSubtitle = styled.div(({ theme }) => ({
+  color: theme.colors.blackA.blackA11,
   fontSize: "12px",
   display: "block",
-});
+}));
 
-const PostAgeAndPrivacy = styled.div({
-  color: "rgb(0, 0, 0, 0.6)",
+const PostAgeAndPrivacy = styled.div(({ theme }) => ({
+  color: theme.colors.blackA.blackA11,
   fontSize: "12px",
   display: "flex",
   justifyItems: "flex-start",
-});
+}));
 
 interface CardHeaderProps {
   postdata: PostData;
@@ -95,7 +93,11 @@ function CardHeader({ postdata }: CardHeaderProps) {
           {<Globe css={{ height: "14px" }} />}
         </PostAgeAndPrivacy>
       </AuthorInfo>
-      <div css={{ color: theme.colors.blackA[6] }}>
+      <div
+        css={(theme) => ({
+          color: theme.colors.blackA.blackA11,
+        })}
+      >
         <MoreHorizontal />
       </div>
     </div>

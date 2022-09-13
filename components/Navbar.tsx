@@ -10,7 +10,7 @@ function NavbarWrapper({ children }: { children: React.ReactNode }) {
         position: "fixed",
         top: 0,
         width: "100%",
-        borderBottom: `1px solid ${theme.colors.blackA[1]}`,
+        borderBottom: `1px solid ${theme.colors.blackA.blackA6}`,
         display: "flex",
         alignItems: "center",
       })}
