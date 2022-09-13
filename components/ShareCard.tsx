@@ -1,4 +1,6 @@
+import { Calendar, Camera, Layout, Video } from "react-feather";
 import { Avatar } from "./Avatar";
+import { Button } from "./Button";
 import { Card } from "./Card";
 
 export function ShareCard() {
@@ -35,10 +37,30 @@ export function ShareCard() {
       </Card.Content>
       <Card.Footer>
         <div css={{ display: "flex", flexDirection: "row" }}>
-          <button>Photo</button>
-          <button>Video</button>
-          <button>Event</button>
-          <button>Write article</button>
+          <Button
+            label="Photo"
+            icon={
+              <Camera css={(theme) => ({ color: theme.colors.blue.blue9 })} />
+            }
+          ></Button>
+          <Button
+            label="Video"
+            icon={
+              <Video css={(theme) => ({ color: theme.colors.green.green9 })} />
+            }
+          ></Button>
+          <Button
+            label="Event"
+            icon={
+              <Calendar css={(theme) => ({ color: theme.colors.red.red9 })} />
+            }
+          ></Button>
+          <Button
+            label="Write article"
+            icon={
+              <Layout css={(theme) => ({ color: theme.colors.red.red9 })} />
+            }
+          ></Button>
         </div>
       </Card.Footer>
     </Card>
