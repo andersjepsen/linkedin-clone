@@ -1,5 +1,6 @@
 import React from "react";
 import { theme } from "../styles/theme";
+import { Footer } from "./Footer";
 import { UserInfoCard } from "./UserInfoCard";
 
 export function HomeLayout({ children }: { children: React.ReactNode }) {
@@ -16,7 +17,7 @@ export function HomeLayout({ children }: { children: React.ReactNode }) {
         <UserInfoCard />
       </aside>
       {children}
-      <footer>Footer stuff</footer>
+      <Footer />
     </div>
   );
 }
