@@ -15,7 +15,9 @@ export function ShareCard() {
             gap: theme.spacing(2),
           })}
         >
-          <Avatar source="https://i.pravatar.cc/150" />
+          <div>
+            <Avatar source="https://i.pravatar.cc/150" />
+          </div>
           <button
             css={(theme) => ({
               borderRadius: theme.radius.pill,
@@ -38,29 +40,33 @@ export function ShareCard() {
       <Card.Footer>
         <div css={{ display: "flex", flexDirection: "row" }}>
           <Button
-            label="Photo"
             icon={
               <Camera css={(theme) => ({ color: theme.colors.blue.blue9 })} />
             }
-          ></Button>
+          >
+            Photo
+          </Button>
           <Button
-            label="Video"
             icon={
               <Video css={(theme) => ({ color: theme.colors.green.green9 })} />
             }
-          ></Button>
+          >
+            Video
+          </Button>
           <Button
-            label="Event"
             icon={
               <Calendar css={(theme) => ({ color: theme.colors.red.red9 })} />
             }
-          ></Button>
+          >
+            Event
+          </Button>
           <Button
-            label="Write article"
             icon={
               <Layout css={(theme) => ({ color: theme.colors.red.red9 })} />
             }
-          ></Button>
+          >
+            Write article
+          </Button>
         </div>
       </Card.Footer>
     </Card>
