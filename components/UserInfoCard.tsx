@@ -1,6 +1,26 @@
+import styled from "@emotion/styled";
 import { Avatar } from "./Avatar";
 import { Card } from "./Card";
 import { Seperator } from "./Seperator";
+
+const UserStatWrapper = styled.div(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
+  "&:hover": {
+    backgroundColor: theme.colors.blackA.blackA6,
+  },
+}));
+
+const UserStatLabel = styled.label(({ theme }) => ({
+  color: theme.colors.blackA.blackA11,
+  fontWeight: 700,
+}));
+
+const UserStatValue = styled.span(({ theme }) => ({
+  color: theme.colors.blue.blue10,
+  fontWeight: 700,
+}));
 
 export function UserInfoCard() {
   return (
@@ -36,6 +56,14 @@ export function UserInfoCard() {
           </div>
         </div>
         <Seperator />
+        <UserStatWrapper>
+          <UserStatLabel>Who&apos;s viewed your profile</UserStatLabel>
+          <UserStatValue>{Math.round(Math.random() * 100)}</UserStatValue>
+        </UserStatWrapper>
+        <UserStatWrapper>
+          <UserStatLabel>Connections</UserStatLabel>
+          <UserStatValue>{Math.round(Math.random() * 1000)}</UserStatValue>
+        </UserStatWrapper>
       </Card.Content>
     </Card>
   );
