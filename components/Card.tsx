@@ -1,15 +1,17 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { Globe, MoreHorizontal } from "react-feather";
+import { theme } from "../styles/theme";
 import { PostData } from "../types/index";
 import { Avatar } from "./Avatar";
 
 interface CardProps {
   children: React.ReactNode;
   padding?: "sm" | "md" | "lg";
+  shadow?: "sm" | "md" | "lg";
 }
 
-export function Card({ children, padding }: CardProps) {
+export function Card({ children, padding, shadow }: CardProps) {
   return (
     <>
       <div
@@ -17,7 +19,7 @@ export function Card({ children, padding }: CardProps) {
           border: `1px solid ${theme.colors.blackA.blackA9}`,
           borderRadius: theme.spacing(1),
           backgroundColor: theme.colors.common.white,
-          minHeight: theme.spacing(10),
+          minHeight: theme.spacing(1),
           ...(padding === "sm" && {
             padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
           }),
@@ -28,8 +30,22 @@ export function Card({ children, padding }: CardProps) {
             padding: `${theme.spacing(1.5)} ${theme.spacing(3)}`,
           }),
 
+          ...(shadow === "sm" && {
+            boxShadow: `0 ${theme.spacing(0.5)} ${theme.spacing(1)} ${
+              theme.colors.blackA.blackA9
+            }`,
+          }),
+          ...(shadow === "md" && {
+            boxShadow: `0 ${theme.spacing(1)} ${theme.spacing(
+              2
+            )} ${theme.spacing(1)} ${theme.colors.blackA.blackA9}`,
+          }),
+          ...(shadow === "lg" && {
+            boxShadow: `0 ${theme.spacing(2)} ${theme.spacing(
+              3
+            )} ${theme.spacing(1)} ${theme.colors.blackA.blackA9}`,
+          }),
           marginBottom: theme.spacing(1),
-          overflow: "hidden",
         })}
       >
         {children}

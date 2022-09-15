@@ -10,6 +10,8 @@ import { PostData } from "../types";
 import { theme } from "../styles/theme";
 import { ThumbsUp, MessageSquare, Share, Send } from "react-feather";
 import { Button } from "../components/Button";
+import { LikeButton } from "../components/LikeButton";
+import { SocialReactionMenu } from "../components/SocialReactionMenu";
 
 export const getServerSideProps = async () => {
   // Fetch data from external API
@@ -60,14 +62,7 @@ const Home: NextPage<Props> = ({ data }) => {
                   gap: theme.spacing(0.5),
                 }}
               >
-                <Button
-                  onClick={() => {
-                    console.log("POPOP");
-                  }}
-                  icon={<ThumbsUp />}
-                >
-                  Like
-                </Button>
+                <LikeButton />
                 <Button icon={<MessageSquare />}>Comment</Button>
                 <Button icon={<Share />}>Share</Button>
                 <Button icon={<Send />}>Send</Button>
