@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import React from "react";
 import { Avatar } from "./Avatar";
 import { Card } from "./Card";
 import { Seperator } from "./Seperator";
@@ -23,6 +24,14 @@ const UserStatValue = styled.span(({ theme }) => ({
 }));
 
 export function UserInfoCard() {
+  const [profileViews, setProfileViews] = React.useState(0);
+  const [connections, setConnections] = React.useState(0);
+
+  React.useEffect(() => {
+    setProfileViews(Math.round(Math.random() * 100));
+    setConnections(Math.round(Math.random() * 1000));
+  }, []);
+
   return (
     <Card>
       <div
@@ -58,11 +67,11 @@ export function UserInfoCard() {
         <Seperator />
         <UserStatWrapper>
           <UserStatLabel>Who&apos;s viewed your profile</UserStatLabel>
-          <UserStatValue>{Math.round(Math.random() * 100)}</UserStatValue>
+          <UserStatValue>{profileViews}</UserStatValue>
         </UserStatWrapper>
         <UserStatWrapper>
           <UserStatLabel>Connections</UserStatLabel>
-          <UserStatValue>{Math.round(Math.random() * 1000)}</UserStatValue>
+          <UserStatValue>{connections}</UserStatValue>
         </UserStatWrapper>
       </Card.Content>
     </Card>
