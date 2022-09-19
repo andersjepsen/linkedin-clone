@@ -2,10 +2,10 @@ import React from "react";
 import { Frown, Heart, Smile, ThumbsDown, ThumbsUp } from "react-feather";
 import { theme } from "../styles/theme";
 import { Card } from "./Card";
-import { ReactionState } from "./helpers/ReactionState";
+import { ReactionState, ReactionType } from "./helpers/ReactionState";
 
 interface SocialReactionMenuProps {
-  onClick?: (type: string) => void;
+  onClick?: (type: ReactionType) => void;
 }
 
 export function SocialReactionMenu({ onClick }: SocialReactionMenuProps) {

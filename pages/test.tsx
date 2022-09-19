@@ -3,6 +3,7 @@ function Test() {
     <div
       css={{
         backgroundColor: "hotpink",
+        paddingTop: "100px",
         "&:hover": {
           color: "lightgreen",
         },

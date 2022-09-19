@@ -1,17 +1,13 @@
 import type { InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import { Avatar } from "../components/Avatar";
+import { MessageSquare, Send, Share } from "react-feather";
+import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import { HomeLayout } from "../components/HomeLayout";
-import { ShareCard } from "../components/ShareCard";
-import styles from "../styles/Home.module.css";
-import { PostData } from "../types";
-import { theme } from "../styles/theme";
-import { ThumbsUp, MessageSquare, Share, Send } from "react-feather";
-import { Button } from "../components/Button";
 import { LikeButton } from "../components/LikeButton";
-import { SocialReactionMenu } from "../components/SocialReactionMenu";
+import { ShareCard } from "../components/ShareCard";
+import { theme } from "../styles/theme";
+import { PostData } from "../types";
 
 export const getServerSideProps = async () => {
   // Fetch data from external API
