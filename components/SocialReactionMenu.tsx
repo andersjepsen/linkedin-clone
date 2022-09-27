@@ -92,18 +92,18 @@ interface SocialMediaEmojiProps {
 
 function SocialMediaEmoji({ children, color, onClick }: SocialMediaEmojiProps) {
   return (
-    <button
+    <motion.button
       onClick={onClick}
+      whileHover={{ scale: 1.2 }}
+      transition={{ duration: 0.1 }}
+      whileTap={{ scale: 0.8 }}
       css={{
-        ":hover": { transform: "scale(1.5)" },
-        transition: "0.1s ease-out",
-        transformOrigin: "50% 100%",
         color,
         borderStyle: "none",
         backgroundColor: "transparent",
       }}
     >
       {children}
-    </button>
+    </motion.button>
   );
 }
